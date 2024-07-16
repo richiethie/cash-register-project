@@ -4,6 +4,8 @@ const mongoose = require('mongoose')
 
 require('dotenv').config();
 
+const productsRouter = require('./routes/products')
+
 const PORT = process.env.PORT || 3001
 const app = express()
 
@@ -17,6 +19,8 @@ const connection = mongoose.connection;
 connection.once('open', () => {
     console.log("MongoDB database connection established successfully")
 })
+
+app.use('/products', productsRouter);
 
 app.listen(PORT, () => {
     console.log(`Express server listening on http://localhost:${PORT}`)
