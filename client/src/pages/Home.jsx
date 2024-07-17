@@ -3,7 +3,7 @@ import axios from 'axios'
 import Spinner from '../components/Spinner'
 import { Link } from 'react-router-dom'
 import { AiOutlineEdit } from 'react-icons/ai'
-import { FaPlus } from "react-icons/fa";
+import { FaPlus, FaCartPlus } from "react-icons/fa";
 import { MdOutlineAddBox, MdOutlineDelete } from 'react-icons/md'
 
 const Home = () => {
@@ -28,7 +28,7 @@ const Home = () => {
            <div className='flex justify-between items-center'>
                 <h1 className='text-3xl my-8'>Products List</h1>
                 <Link to='/products/add'>
-                    <MdOutlineAddBox className='text-sky-800 test-4xl' />
+                    <MdOutlineAddBox className='text-sky-800 text-4xl' />
                 </Link>
             </div> 
             {loading ? (
@@ -58,7 +58,7 @@ const Home = () => {
                                     <div className='flex justify-center gap-x-4'>
                                         {/* change this to adding product to cart */}
                                         <Link to='/products/add'>
-                                        <FaPlus className='text-2xl text-green-800' />
+                                        <FaCartPlus className='text-2xl text-green-800' />
                                         </Link>
                                         <Link to={`/products/update/${product._id}`}>
                                             <AiOutlineEdit className='text-2xl text-yellow-600' />
