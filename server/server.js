@@ -5,6 +5,7 @@ const mongoose = require('mongoose')
 require('dotenv').config();
 
 const productsRouter = require('./routes/products')
+const cartRouter = require('./routes/cart')
 
 const PORT = process.env.PORT || 3001
 const app = express()
@@ -21,6 +22,7 @@ connection.once('open', () => {
 })
 
 app.use('/products', productsRouter);
+app.use('/cart', cartRouter);
 
 app.listen(PORT, () => {
     console.log(`Express server listening on http://localhost:${PORT}`)

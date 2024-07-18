@@ -1,9 +1,9 @@
 const router = require('express').Router();
-let Product = require('../models/product.model');
+let Cart = require('../models/cart.model');
 
 router.route('/').get((req, res) => {
-    Product.find()
-        .then(products => res.json(products))
+    Cart.find()
+        .then(items => res.json(items))
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
@@ -11,36 +11,36 @@ router.route('/add').post((req, res) => {
     const name = req.body.name;
     const price = Number(req.body.price);
 
-    const newProduct = new Product({
+    const newCart = new Cart({
         name,
         price,
     });
     
-    newProduct.save()
-    .then(() => res.json('Product added!'))
+    newCart.save()
+    .then(() => res.json('Cart item added!'))
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
 router.route('/:id').get((req, res) => {
-    Product.findById(req.params.id)
-        .then(product => res.json(product))
+    Cart.findById(req.params.id)
+        .then(cart => res.json(cart))
         .catch(err => res.status(400).json('Error: ' + err));
 })
 
 router.route('/delete/:id').delete((req, res) => {
-    Product.findByIdAndDelete(req.params.id)
-        .then(() => res.json('Product deleted.'))
+    Cart.findByIdAndDelete(req.params.id)
+        .then(() => res.json('Cart item deleted.'))
         .catch(err => res.status(400).json('Error: ' + err));
 })
 
 router.route('/update/:id').post((req, res) => {
-    Product.findById(req.params.id)
-        .then(product => {
-            product.name = req.body.name;
-            product.price = Number(req.body.price);
+    Cart.findById(req.params.id)
+        .then(cart => {
+            cart.name = req.body.name;
+            cart.price = Number(req.body.price);
 
-            product.save()
-                .then(() => res.json('Product updated!'))
+            cart.save()
+                .then(() => res.json('Cart item updated!'))
                 .catch(err=> res.status(400).json('Error: ' + err));
         })
         .catch(err => res.status(400).json('Error: ' + err));
