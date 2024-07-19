@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 import { BiUserCircle } from 'react-icons/bi'
 import { AiOutlineEdit } from 'react-icons/ai'
@@ -10,9 +10,26 @@ const ProductsCard = ({products}) => {
     const [name, setName] = useState('')
     const [price, setPrice] = useState('')
     const [loading, setLoading] = useState(false);
+    const navigate = useNavigate()
+    const {id} = useParams()
     // console.log(products)
+    useEffect(() => {
+        setLoading(true)
+        axios.get(`http://localhost:3001/cart/${id}`)
+            .then((response) => {
+                console.log(response)
+                // setName(response.data.name)
+                // setPrice(response.data.price)
+                // setLoading(false)
+            })
+            .catch((error) => {
+                setLoading(false)
+                alert("An error has occurred. Please check console.")
+                console.log(error)
+            })
+    })
     const handleSaveCart = () => {
-        console.log(item)
+        console.log(name)
         const data = {
             name,
             price
@@ -34,7 +51,6 @@ const ProductsCard = ({products}) => {
     return (
         <div className='grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
             {products.map((item) => (
-                
                 <div
                     key={item._id}
                     className='border-2 border-gray-500 rounded-lg px-4 py-2 m-4 relative hover:shadow-xl'
@@ -47,7 +63,18 @@ const ProductsCard = ({products}) => {
                     </div>
                     <div className='flex justify-evenly items-center gap-x-2 mt-4 p-4'>
                         {/* add to cart functionality needs to be added */}
-                        <FaCartPlus className='text-2xl text-green-800 hover:text-black' onClick={handleSaveCart}/>
+                        <Link to={`/cart/${item._id}`}>
+                            <FaCartPlus className='text-2xl text-green-800 hover:text-black' onClick={() => {
+                                const cartName = item.name
+                                const cartPrice = item.price
+                                // setName(cartName)
+                                // setPrice(cartPrice)
+                                handleSaveCart()
+                                
+                                
+                            }}/>
+                        </Link>
+                        
                         <Link to={`/products/update/${item._id}`}>
                             <AiOutlineEdit className='text-2xl text-yellow-600 hover:text-black' />
                         </Link>
