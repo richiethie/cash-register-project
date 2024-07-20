@@ -6,6 +6,7 @@ import ShowProducts from './pages/ShowProducts'
 import EditProducts from './pages/EditProducts'
 import DeleteProducts from './pages/DeleteProducts'
 import ProductsCard from './components/ProductsCard'
+import DeleteCart from './pages/DeleteCart'
 
 const App = () => {
 
@@ -17,6 +18,7 @@ const App = () => {
       <Route path='/cart/:id' element={<Home />} />
       <Route path='/products/update/:id' element={<EditProducts />} />
       <Route path='/products/delete/:id' element={<DeleteProducts />} />
+      <Route path='/cart/delete/:id' element={<DeleteCart />} />
     </Routes>
   )
 }

@@ -42,7 +42,7 @@ const Home = () => {
     }, [])
     return (
         <div className='flex justify-evenly items-center'>
-            <div className='w-[40%] p-4 border-2 border-gray-500 rounded-lg'>
+            <div className='w-[40%] p-4 mt-12 border-2 border-gray-500 rounded-lg'>
                 <CartList cart={cart}/>
             </div>
             <div className='w-[60%] p-4'>

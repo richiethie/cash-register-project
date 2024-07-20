@@ -13,28 +13,28 @@ const ProductsCard = ({products}) => {
     const navigate = useNavigate()
     const {id} = useParams()
     // console.log(products)
-    useEffect(() => {
-        setLoading(true)
-        axios.get(`http://localhost:3001/cart/${id}`)
-            .then((response) => {
-                console.log(response)
-                // setName(response.data.name)
-                // setPrice(response.data.price)
-                // setLoading(false)
-            })
-            .catch((error) => {
-                setLoading(false)
-                alert("An error has occurred. Please check console.")
-                console.log(error)
-            })
-    })
+    // useEffect(() => {
+    //     setLoading(true)
+    //     axios.get(`http://localhost:3001/cart/${id}`)
+    //         .then((response) => {
+    //             console.log(response)
+    //             // setName(response.data.name)
+    //             // setPrice(response.data.price)
+    //             // setLoading(false)
+    //         })
+    //         .catch((error) => {
+    //             setLoading(false)
+    //             alert("An error has occurred. Please check console.")
+    //             console.log(error)
+    //         })
+    // })
     const handleSaveCart = () => {
-        console.log(name)
+        // console.log(name)
         const data = {
             name,
             price
         }
-        console.log(data)
+        // console.log(data)
         setLoading(true)
         axios
             .post('http://localhost:3001/cart/add', data)
@@ -67,8 +67,8 @@ const ProductsCard = ({products}) => {
                             <FaCartPlus className='text-2xl text-green-800 hover:text-black' onClick={() => {
                                 const cartName = item.name
                                 const cartPrice = item.price
-                                // setName(cartName)
-                                // setPrice(cartPrice)
+                                setName(cartName)
+                                setPrice(cartPrice)
                                 handleSaveCart()
                                 
                                 
