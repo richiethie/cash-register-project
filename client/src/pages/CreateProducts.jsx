@@ -31,29 +31,31 @@ const CreateProducts = () => {
     return (
         <div className='p-4'>
             <BackButton />
-            <h1 className='text-3xl my-4'>Add Products</h1>
+            <div className='flex justify-center text-slate-700 font-bold'>
+                <h1 className='text-3xl my-4'>ADD PRODUCT</h1>
+            </div>
             {loading ? <Spinner /> : ''}
-            <div className='flex flex-col border-2 border-sky-400 rounded-xl w-[600px] p-4 mx-auto'>
+            <div className='flex flex-col items-center bg-slate-50 shadow-xl w-[600px] p-8 mx-auto'>
                 <div className='my-4'>
-                    <label className='text-xl mr-4 text-gray-500'>Name</label>
+                    <label className='text-xl mr-4 font-semibold text-slate-600'>NAME</label>
                     <input
                        type='text'
                        value={name}
                        onChange={(e) => setName(e.target.value)}
-                       className='border-2 border-gray-500 px-4 py-2 w-full'
+                       className='border-2 border-slate-300 px-4 py-2 w-full'
                     />
                 </div>
                 <div className='my-4'>
-                    <label className='text-xl mr-4 text-gray-500'>Price</label>
+                    <label className='text-xl mr-4 font-semibold text-slate-600'>PRICE</label>
                     <input
                        type='text'
                        value={price}
                        onChange={(e) => setPrice(e.target.value)}
-                       className='border-2 border-gray-500 px-4 py-2 w-full'
+                       className='border-2 border-slate-300 px-4 py-2 w-full'
                     />
                 </div>
-                <button className='p-2 bg-sky-300 m-8' onClick={handleSaveProduct}>
-                    Save
+                <button className='p-2 bg-teal-400 m-8 text-white text-xl font-bold' onClick={handleSaveProduct}>
+                    SAVE
                 </button>
             </div>
         </div>
