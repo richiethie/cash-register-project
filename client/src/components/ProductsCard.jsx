@@ -38,10 +38,10 @@ const ProductsCard = ({products}) => {
                     key={item._id}
                     className='border-2 border-gray-300 px-4 py-2 m-4 relative hover:shadow-xl'
                 >
-                    <div className='text-lg font-semibold flex justify-center items-center gap-x-2'>
+                    <div className='text-lg font-semibold text-slate-700 flex justify-center items-center gap-x-2'>
                         <h2 className='my-1'>{item.name}</h2>
                     </div>
-                    <div className='text-xl font-bold flex justify-center items-center gap-x-2'>
+                    <div className='text-xl font-bold text-slate-700 flex justify-center items-center gap-x-2'>
                         <h2 className='my-1'>${item.price}</h2>
                     </div>
                     <div className='flex justify-between items-center gap-x-2 mt-4 mb-2 p-2'>

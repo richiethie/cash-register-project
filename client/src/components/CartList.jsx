@@ -9,28 +9,23 @@ const CartList = ({cart}) => {
     const [tender, setTender] = useState('')
     const [showModal, setShowModal] = useState(false);
     const [changeDue, setChangeDue] = useState('')
-    console.log(cart)
     const priceArr = cart.map((item) => {
-        console.log(item.price)
         let arr = []
         const itemPrice = item.price
         // arr.push(itemPrice)
         return itemPrice
     })
-    console.log(priceArr)
     let sum = 0
     for (let i = 0; i < priceArr.length; i++) {
         sum += priceArr[i]
     }
     const totalPrice = sum.toFixed(2)
-    console.log(totalPrice)
 
     const handleCheckout = () => {
         const change = tender - totalPrice
         const totalChange = change.toFixed(2)
         setShowModal(true)
         setChangeDue(totalChange)
-        console.log(change)
     }
     return (
         <div className="w-full border-separate border-spacing">

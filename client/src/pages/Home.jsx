@@ -17,7 +17,6 @@ const Home = () => {
         axios
             .get('http://localhost:3001/products')
             .then((response) => {
-                console.log(response.data)
                 setProducts(response.data)
                 setLoading(false)
             })
@@ -31,7 +30,6 @@ const Home = () => {
         axios
             .get('http://localhost:3001/cart')
             .then((response) => {
-                console.log(response.data)
                 setCart(response.data)
                 setLoading(false)
             })

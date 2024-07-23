@@ -54,7 +54,7 @@ const CreateProducts = () => {
                        className='border-2 border-slate-300 px-4 py-2 w-full'
                     />
                 </div>
-                <button className='p-2 bg-teal-400 m-8 text-white text-xl font-bold' onClick={handleSaveProduct}>
+                <button className='py-2 px-4 bg-teal-400 m-8 text-white text-xl font-bold' onClick={handleSaveProduct}>
                     SAVE
                 </button>
             </div>
