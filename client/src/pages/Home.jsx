@@ -41,22 +41,25 @@ const Home = () => {
             })
     }, [])
     return (
-        <div className='flex justify-evenly items-center'>
-            <div className='w-[40%] p-4 mt-12 border-2 border-gray-500 rounded-lg'>
-                <CartList cart={cart}/>
-            </div>
-            <div className='w-[60%] p-4'>
-                <div className='flex justify-between items-center'>
-                    <h1 className='ml-4 text-3xl my-8'>Products List</h1>
-                    <Link to='/products/add'>
-                        <MdOutlineAddBox className='text-sky-800 text-4xl' />
-                    </Link>
-                </div> 
-                {loading ? (
-                    <Spinner />
-                ) : (
-                    <ProductsCard products={products} />
-                )}
+        <div className='flex flex-col h-dvh bg-slate-100 justify-center items-center'>
+            <h1 className='text-3xl font-bold text-slate-700 mt-4 p-4'>CASH REGISTER</h1>
+            <div className='flex h-dvh w-[100%] bg-slate-100 justify-evenly items-start'>
+                <div className='w-[40%] bg-white p-4 m-4 '>
+                    <CartList cart={cart}/>
+                </div>
+                <div className='w-[60%] bg-white shadow-lg m-4 p-4'>
+                    <div className='flex justify-between items-center'>
+                        <h1 className='ml-4 text-2xl text-teal-400 font-bold my-8'>PRODUCTS LIST</h1>
+                        <Link to='/products/add'>
+                            <MdOutlineAddBox className='text-teal-400 hover:text-black text-4xl' />
+                        </Link>
+                    </div> 
+                    {loading ? (
+                        <Spinner />
+                    ) : (
+                        <ProductsCard products={products} />
+                    )}
+                </div>
             </div>
         </div>
         

@@ -34,25 +34,25 @@ const CartList = ({cart}) => {
     }
     return (
         <div className="w-full border-separate border-spacing">
-            <h1 className='text-3xl my-4'>Cart</h1>
-            <table className='w-full border-separate border-spacing'>
+            <h1 className='text-2xl text-teal-400 font-bold my-4'>CART</h1>
+            <table className='w-full border-2 border-slate-200'>
                 <thead>
                     <tr>
-                    <th className='border border-slate-600'>Name</th>
-                        <th className='border border-slate-600'>Price</th>
-                        <th className='border border-slate-600'>Remove</th>
+                    <th className=''>Name</th>
+                        <th className=''>Price</th>
+                        <th className=''>Remove</th>
                     </tr>
                 </thead>
                 <tbody>
                     {cart.map((item, index) => (
                         <tr key={item._id} className='h-8'>
-                            <td className='border border-slate-700 text-center'>
+                            <td className='border-slate-600 text-center'>
                                 {item.name}
                             </td>
-                            <td className='border border-slate-700 text-center'>
+                            <td className='border-slate-600 text-center'>
                                 ${item.price}
                             </td>
-                            <td className='border border-slate-700 text-center'>
+                            <td className='border-slate-600 text-center'>
                                 <div className='flex justify-center gap-x-4'>
                                     <Link to={`/cart/delete/${item._id}`}>
                                         <MdOutlineDelete className='text-2xl text-red-600' />
@@ -63,37 +63,37 @@ const CartList = ({cart}) => {
                     ))}
                 </tbody>
             </table>
-            <div>Total: ${totalPrice}</div>
-            <div className='flex flex-row'>
-                <h2>Tender: </h2>
+            <div className='mt-4 text-slate-700 text-md font-bold'>TOTAL: ${totalPrice}</div>
+            <div className='text-md text-slate-700 font-bold flex flex-row items-center'>
+                <h2>TENDER: </h2>
                 <input 
                     type='number' 
-                    className='border-2 border-gray-500 ml-2 px-4 py-2 w-[40%]'
+                    className='border-2 border-slate-300 m-2  w-[40%] '
                     onChange={(e) => setTender(e.target.value)}
                 />
             </div>
-            <button className='p-2 bg-sky-300 mt-4' onClick={handleCheckout}>
-                    Checkout
+            <button className='p-2 text-white font-semibold bg-teal-400 mt-4' onClick={handleCheckout}>
+                    CHECKOUT
             </button>
             {/* Modal logic below */}
             {showModal ? (
                 <>
-                    <div className="flex justify-center items-center overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
+                    <div className="flex justify-center items-center drop-shadow-xl overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
                         <div className="relative w-auto my-6 mx-auto max-w-3xl">
-                            <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+                            <div className="border-0 shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                                 <div className="flex items-start justify-between p-5 border-b border-solid border-gray-300 rounded-t ">
-                                    <h3 className="text-3xl font=semibold">Receipt</h3>
+                                    <h3 className="text-3xl text-slate-700 font-semibold">RECEIPT</h3>
                                     <button
                                         className="flex bg-transparent border-0 text-black float-right"
                                         onClick={() => setShowModal(false)}
                                     >
-                                        <span className="flex justify-center items-center pb-1 text-black opacity-7 h-6 w-6 text-xl block bg-gray-400 py-0 rounded-full">
+                                        <span className="flex justify-center items-center pb-1.5 hover:text-orange-700 text-black opacity-7 h-6 w-6 text-xl block bg-slate-200 py-0 rounded-full">
                                         x
                                         </span>
                                     </button>
                                 </div>
                                 <div className="relative p-6 flex-auto">
-                                    <form className="relative bg-gray-200 shadow-md rounded px-8 pt-6 pb-8 w-full ">
+                                    <form className="relative bg-slate-200 shadow-md px-8 pt-6 pb-8 w-full ">
                                         {cart.map((item) => (
                                             <div key={item._id} className='flex flex-row justify-between relative '>
                                                 <p className='pr-10'>{item.name}</p>
@@ -116,21 +116,14 @@ const CartList = ({cart}) => {
                                         </div>
                                     </form>
                                 </div>
-                                <div className="flex items-center justify-center p-6 border-t border-solid border-blueGray-200 rounded-b">
+                                <div className="flex items-center justify-center p-6 border-t border-solid border-blueGray-200">
                                     <button
-                                        className="text-white bg-red-500 font-bold uppercase px-6 py-2 rounded shadow hover:shadow-lg text-sm outline-none focus:outline-none mr-1 mb-1"
+                                        className="text-white bg-red-500 font-bold uppercase px-6 py-2 shadow hover:shadow-lg text-sm outline-none focus:outline-none mr-1 mb-1"
                                         type="button"
                                         onClick={() => setShowModal(false)}
                                     >
                                         Close
                                     </button>
-                                    {/* <button
-                                        className="text-white bg-yellow-500 active:bg-yellow-700 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
-                                        type="button"
-                                        onClick={() => setShowModal(false)}
-                                    >
-                                        Submit
-                                    </button> */}
                                 </div>
                             </div>
                         </div>

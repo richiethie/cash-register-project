@@ -11,7 +11,7 @@ import DeleteCart from './pages/DeleteCart'
 const App = () => {
 
   return (
-    <Routes>
+    <Routes >
       <Route path='/' element={<Home />} />
       <Route path='/products/add' element={<CreateProducts />} />
       <Route path='/products/:id' element={<ShowProducts />} />

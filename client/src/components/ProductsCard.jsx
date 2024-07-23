@@ -53,15 +53,15 @@ const ProductsCard = ({products}) => {
             {products.map((item) => (
                 <div
                     key={item._id}
-                    className='border-2 border-gray-500 rounded-lg px-4 py-2 m-4 relative hover:shadow-xl'
+                    className='border-2 border-gray-300 px-4 py-2 m-4 relative hover:shadow-xl'
                 >
-                    <div className='flex justify-center items-center gap-x-2'>
+                    <div className='text-lg font-semibold flex justify-center items-center gap-x-2'>
                         <h2 className='my-1'>{item.name}</h2>
                     </div>
-                    <div className='flex justify-center items-center gap-x-2'>
+                    <div className='text-xl font-bold flex justify-center items-center gap-x-2'>
                         <h2 className='my-1'>${item.price}</h2>
                     </div>
-                    <div className='flex justify-evenly items-center gap-x-2 mt-4 p-4'>
+                    <div className='flex justify-between items-center gap-x-2 mt-4 mb-2 p-2'>
                         {/* add to cart functionality needs to be added */}
                         <Link to={`/cart/${item._id}`}>
                             <FaCartPlus className='text-2xl text-green-800 hover:text-black' onClick={() => {
