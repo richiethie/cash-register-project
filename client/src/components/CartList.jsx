@@ -33,21 +33,21 @@ const CartList = ({cart}) => {
             <table className='w-full border-2 border-slate-200'>
                 <thead>
                     <tr>
-                    <th className=''>Name</th>
-                        <th className=''>Price</th>
-                        <th className=''>Remove</th>
+                    <th className='text-slate-700'>Name</th>
+                        <th className='text-slate-700'>Price</th>
+                        <th className='text-slate-700'>Remove</th>
                     </tr>
                 </thead>
                 <tbody>
                     {cart.map((item, index) => (
                         <tr key={item._id} className='h-8'>
-                            <td className='border-slate-600 text-center'>
+                            <td className='border-slate-600 text-slate-700 text-center'>
                                 {item.name}
                             </td>
-                            <td className='border-slate-600 text-center'>
+                            <td className='border-slate-600 text-slate-700 text-center'>
                                 ${item.price}
                             </td>
-                            <td className='border-slate-600 text-center'>
+                            <td className='border-slate-600 text-slate-700 text-center'>
                                 <div className='flex justify-center gap-x-4'>
                                     <Link to={`/cart/delete/${item._id}`}>
                                         <MdOutlineDelete className='text-2xl text-red-600' />
@@ -63,7 +63,7 @@ const CartList = ({cart}) => {
                 <h2>TENDER: </h2>
                 <input 
                     type='number' 
-                    className='border-2 border-slate-300 m-2  w-[40%] '
+                    className='border-2 border-slate-300 m-2  w-[25%] '
                     onChange={(e) => setTender(e.target.value)}
                 />
             </div>
