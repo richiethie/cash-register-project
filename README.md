@@ -5,7 +5,7 @@
 The Cash Register Project is a web application designed to manage products and shopping cart functionality. Built using React and Vite, this application allows users to view products, add them to a cart, and manage their shopping list seamlessly. The application is deployed on Vercel, providing a fast and responsive user experience.
 
 ### Live Demo
-Check out the live version of the application: [Cash Register Project](https://cash-register-project-three.vercel.app/)
+Check out the live version of the application: [Cash Register Project](https://cash-register-project-three.vercel.app/) (Backend currently not live)
 
 ## Features
 - **Product Management**: View a list of available products with details.
